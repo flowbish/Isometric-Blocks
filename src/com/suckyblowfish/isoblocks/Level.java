@@ -20,26 +20,14 @@ import org.newdawn.slick.opengl.Texture;
 import org.newdawn.slick.opengl.TextureLoader;
 import org.newdawn.slick.util.ResourceLoader;
 
+import com.suckyblowfish.isoblocks.blocks.Block;
 import com.sun.net.httpserver.Filter;
 
 public class Level {
-	
-	Texture tile;
-	
-	private int length;
-	private int width;
-	private int depth;
 	private ArrayList<Block> blocks = new ArrayList<Block>();
 	
 	public Level(){
-		length = 300;
-		width = 150;
-		depth = 25;
-		try {
-			tile = TextureLoader.getTexture("PNG", ResourceLoader.getResourceAsStream("res/GrassBlock.png"));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		
 	}
 	
 	public void load(String levelName){
@@ -70,7 +58,9 @@ public class Level {
 	    	for (int z=0;z<8;z++){
 	    		for (int x=0;x<8;x++){
 	    			if (levelData[x+4*z+16*y]==49){
-	    				this.putBlock(new Block(x,y,z));
+	    				this.putBlock(new Block(x,y,z,Type.BLOCK_DIRT));
+	    			}else if (levelData[x+4*z+16*y]==50){
+	    				this.putBlock(new Block(x,y,z,Type.BLOCK_GRASS));
 	    			}
 	    	    }
 		    }

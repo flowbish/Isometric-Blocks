@@ -44,6 +44,8 @@ public class Isoblocks {
 		level = new Level();
 		level.load("world1");
 		
+		GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_LINEAR);
+		GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MIN_FILTER, GL11.GL_LINEAR);
 //		GL11.glEnable(GL11.GL_DEPTH_TEST);
 //		GL11.glEnable(GL11.GL_LIGHTING);
 //		GL11.glEnable(GL11.GL_LIGHT0);
